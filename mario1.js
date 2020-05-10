@@ -1,28 +1,25 @@
 
-printPyramid(5);
+document.querySelector("#heightt").addEventListener("change",printPyramid);
+document.querySelector("#symboll").addEventListener("change",printPyramid);
 
-
-/*
- * printPyramid
- *
- * Prints to the console a pyramid of '#' characters of the specified height
- * For example, if height is 5, the console will look like this:
- *          ##
- *         ###
- *        ####
- *       #####
- *      ######
- */
-function printPyramid(height) {
-       	var n=2,s='';
-  for (var i=0;i<height;i++){
-    s+=' '
-  }
-  s+='#'
-	for (i=0;i<height;i++){
+function printPyramid() {
+    var a = document.querySelector('#pyramid');
+    height=document.querySelector("#heightt").value;
+    x=document.querySelector("#symboll").value;
+    a.innerHTML="";
+    var  brek= document.createElement('br');
+    var s="";
+  for (var i=0;i<height;i++) s+='\u00A0'+'\u00A0'+'\u00A0'+'\u00A0';
+      s+=x;
+    for (i=0;i<height;i++){
     s=s.slice(1);
-			s=s+"#";
-    console.log(s);
-		n++;
-	}
+    s=s.slice(1);
+    s=s+x;
+    var newtxt = document.createElement('p');
+    newtxt.innerText=s;
+    a.appendChild(newtxt);
+    a.appendChild(brek);
+    }
+
 }
+
